@@ -108,5 +108,10 @@ span{
 	letter-spacing: 1px;
     word-spacing: 2px;
 }
+.button:hover{
+	border-radius: 5px;
+	background-color:#a39d8e;
+	transition: .5s;
 
+}
 
