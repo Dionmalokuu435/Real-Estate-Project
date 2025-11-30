@@ -171,6 +171,19 @@ section-2 p{
       padding: 25px;
       border-radius: 15px;
       background-color: rgba(213, 193, 170, 0.7);
-     
+}
+.houses:hover img{
+	background-color: rgba(225, 198, 153, 1.0);	
+	transition: .5s;
+} 
+
+.build:hover img{
+	background-color: rgba(225, 198, 153, 1.0);	
+	transition: .5s;
+} 
+
+.arch:hover img{
+	background-color: rgba(225, 198, 153, 1.0);	
+	transition: .5s;
 
 }
