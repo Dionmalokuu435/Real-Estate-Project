@@ -187,3 +187,38 @@ section-2 p{
 	transition: .5s;
 
 }
+.footer{
+	background-color: #2f302f;
+     color: white;
+     height: 400px;
+     position: relative;
+
+
+
+}
+
+.footer .footer-contact{
+	
+	display: flex;
+}
+
+.footer .footer-contact .footersection{
+	flex: 1;
+	padding: 25px;
+
+
+}
+
+.fotter-bootom{
+	height: 50px;
+	background-color:whitesmoke;
+	color: whitesmoke;
+	bottom: 0;
+	left: 0;
+	padding-top:20px ;
+	width: 100%;
+	align-items: center;
+	position: absolute;
+
+
+}
