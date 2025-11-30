@@ -132,3 +132,26 @@ section-2 p{
 	position:center;
 
 }
+.offering{
+    width:70%;
+    left: auto;
+    right: auto;
+    height: 600px;
+	position:relative;
+	display: flex;
+	margin: 0px 10px;
+	border-radius: 15px;
+	position: center;
+}
+
+.houses img{
+      margin:0 30px;
+      width: 300px;
+      height: 450px;
+      padding: 25px;
+      border-radius: 15px;
+      background-color: rgba(213, 193, 170, 0.7);
+     transition: .5s;
+
+
+}
