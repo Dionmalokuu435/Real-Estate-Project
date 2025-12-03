@@ -276,6 +276,7 @@ span{
 }
 
 /* // ketu fillon ccs per about us */
+/* Ju lutem filloni me PUNU */
 .aboutus{
 	color: black;
 	width: 100%;
@@ -298,4 +299,50 @@ span{
 	align-items: center;
 	position: relative;
 	margin-top: 3%;
+}
+.perneve {
+	width: 100%;
+	display: flex;
+}
+
+.perneve img {
+	margin-left:9%;
+	margin-top: 8%;
+	position: relative;
+	width: 500px;
+	height: 500px;
+
+}
+.perneve p{
+	font-size: 18px;
+	font-weight: 200;
+	text-align: left;
+	position: relative;
+	padding: 160px 65px 0px 65px;
+	letter-spacing: 1px;
+	word-spacing: 4px;
+}
+.bosat{
+	width: 100%;
+	display: flex;
+
+}
+
+.bosat h2{
+	font-size: 24px;
+	align-items: center;
+	margin-top: 8%;
+	margin-left: 45%;
+	font-weight:600;
+	position:absolute;
+}
+
+.bosat p{
+	text-align: center;
+	align-items: center;
+	font-size: 14px;
+	margin-top:13%;
+	margin-left:33%;
+	position: absolute;
+
 }
