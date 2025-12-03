@@ -120,7 +120,7 @@ span{
 	display: inline;
 	text-align: center;
 }
-section-2 p{
+.section-2 p{
 	font-size: 13px;
 	font-weight: 200;
 	color: darkgray;
@@ -273,4 +273,29 @@ section-2 p{
     text-align: center;
     font-size: 12px;
     color: #ccc;
+}
+
+/* // ketu fillon ccs per about us */
+.aboutus{
+	color: black;
+	width: 100%;
+	margin: auto;
+	display: inline;
+	text-align: center;
+
+}
+.aboutus h2{
+	font-size: 24px;
+	align-items: center;
+	position: relative;
+	margin-top: 8%;
+
+
+}
+.aboutus p{
+	font-weight: 200;
+	font-size: 13px;
+	align-items: center;
+	position: relative;
+	margin-top: 3%;
 }
