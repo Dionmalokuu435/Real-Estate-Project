@@ -381,3 +381,47 @@ span{
     margin: 0;
     position: static;   
 }
+.format{
+	background-color:#827f79;
+	font-size: 14px;
+
+
+}
+   .container{
+  	width: 80%;
+  	padding-right: 50px;
+  	position: relative;
+  	right:-16%;
+  	margin: -17px;
+
+  	
+  }
+  .contact-box{
+  	background: #fff;
+  	display: flex;
+  }
+
+.contact-left{
+	flex-basis: 60%;
+	padding: 40px 60px;
+}
+.contact-right{
+	flex-basis:40%;
+	padding: 40px;
+	background: #696660;
+	color: white;
+
+
+ }
+
+ .container h2{
+         margin-bottom:10px;
+         padding-top: 30px;
+
+
+ }
+ .container p{
+         margin-bottom:40px;
+          padding-bottom: 30px;
+ }
+ 
