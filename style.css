@@ -322,114 +322,62 @@ span{
 	letter-spacing: 1px;
 	word-spacing: 4px;
 }
-.bosat{
-	width: 100%;
-	display: flex;
 
+
+.bosat{
+    width: 100%;
+    text-align: center;
+    margin-top: 80px;
+    padding: 40px 0 80px;
+    
 }
+
 
 .bosat h2{
-	font-size: 24px;
-	align-items: center;
-	margin-top: 8%;
-	margin-left: 45%;
-	font-weight:600;
-	position:absolute;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    position: static;   
 }
 
-.bosat p{
-	text-align: center;
-	align-items: center;
-	font-size: 14px;
-	margin-top:13%;
-	margin-left:33%;
-	position: absolute;
-
-}
-.enveri {
-	display: flex;
+.bosat > p{
+    font-size: 14px;
+    margin: 0 auto 30px;
+    max-width: 600px;
+    position: static;   
 }
 
-.enveri img{
-	width: 225px;
-	height: 228px;
-	margin-top:19%;
-	margin-left:11% ;
-	border-radius:200px;
-	position:absolute;
-	border: 3px solid lightgray;
 
-}
-.enveri p{
-    font-size:14px;
-	font-weight: 200;
-	text-align: right;
-	position: absolute;
-	margin-left:13% ;
-	margin-top:40%;
-	text-align: center;
-
-}
-.gafa img{
-	width: 225px;
-	height: 228px;
-	margin-top:19%;
-	margin-left:33%;
-	border-radius:200px; 
-	position:absolute;
-	border: 3px solid lightgray;
-
+.enveri,
+.gafa,
+.besimi,
+.avnia{
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px 25px;
+    text-align: center;
 }
 
-.gafa p{
-    font-size:14px;
-	font-weight: 200;
-	text-align: right;
-	position: absolute;
-	margin-left:33% ;
-	margin-top:40%;
-	text-align: center;
 
-}
-.besimi img{
-	width: 225px;
-	height: 228px;
-	margin-top:19%;
-	margin-left:55%;
-	border-radius:200px; 
-	position:absolute;
-	border: 3px solid lightgray;
-
-}
-.besimi p{
-    font-size:14px;
-	font-weight: 200;
-	text-align: right;
-	position: absolute;
-	margin-left:55% ;
-	margin-top:40%;
-	text-align: center;
-
-}
+.enveri img,
+.gafa img,
+.besimi img,
 .avnia img{
-	width: 225px;
-	height: 228px;
-	margin-top:19%;
-	margin-left:77%;
-	border-radius:200px; 
-	position:absolute;
-	border: 3px solid lightgray;
-
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    border: 3px solid lightgray;
+    margin: 0 0 15px;
+    position: static;   
 }
 
+
+.enveri p,
+.gafa p,
+.besimi p,
 .avnia p{
-    font-size:14px;
-	font-weight: 200;
-	text-align: right;
-	position: absolute;
-	margin-left:79% ;
-	margin-top:40%;
-	text-align: center;
-
-
+    font-size: 14px;
+    font-weight: 200;
+    margin: 0;
+    position: static;   
 }
