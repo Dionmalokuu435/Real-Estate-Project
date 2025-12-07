@@ -346,3 +346,90 @@ span{
 	position: absolute;
 
 }
+.enveri {
+	display: flex;
+}
+
+.enveri img{
+	width: 225px;
+	height: 228px;
+	margin-top:19%;
+	margin-left:11% ;
+	border-radius:200px;
+	position:absolute;
+	border: 3px solid lightgray;
+
+}
+.enveri p{
+    font-size:14px;
+	font-weight: 200;
+	text-align: right;
+	position: absolute;
+	margin-left:13% ;
+	margin-top:40%;
+	text-align: center;
+
+}
+.gafa img{
+	width: 225px;
+	height: 228px;
+	margin-top:19%;
+	margin-left:33%;
+	border-radius:200px; 
+	position:absolute;
+	border: 3px solid lightgray;
+
+}
+
+.gafa p{
+    font-size:14px;
+	font-weight: 200;
+	text-align: right;
+	position: absolute;
+	margin-left:33% ;
+	margin-top:40%;
+	text-align: center;
+
+}
+.besimi img{
+	width: 225px;
+	height: 228px;
+	margin-top:19%;
+	margin-left:55%;
+	border-radius:200px; 
+	position:absolute;
+	border: 3px solid lightgray;
+
+}
+.besimi p{
+    font-size:14px;
+	font-weight: 200;
+	text-align: right;
+	position: absolute;
+	margin-left:55% ;
+	margin-top:40%;
+	text-align: center;
+
+}
+.avnia img{
+	width: 225px;
+	height: 228px;
+	margin-top:19%;
+	margin-left:77%;
+	border-radius:200px; 
+	position:absolute;
+	border: 3px solid lightgray;
+
+}
+
+.avnia p{
+    font-size:14px;
+	font-weight: 200;
+	text-align: right;
+	position: absolute;
+	margin-left:79% ;
+	margin-top:40%;
+	text-align: center;
+
+
+}
