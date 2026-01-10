@@ -37,17 +37,17 @@
 
     <div class="offering">
 
-        <div class="houses">
+        <div class="category-card houses" data-type="house">
             <img src="https://i.pinimg.com/564x/29/c5/a1/29c5a1a2b501193ff0903ddcac802d2f.jpg">
             <h3>HOUSES</h3>
         </div>
 
-        <div class="build">
+        <div class="category-card build" data-type="apartment">
             <img src="https://i.pinimg.com/564x/00/f2/ca/00f2ca2703f98f7b8f96208d9ba49e17.jpg">
             <h3>BUILDING</h3>
         </div>
 
-        <div class="arch">
+        <div class="category-card arch" data-type="land">
             <img src="https://i.pinimg.com/564x/9f/32/ab/9f32ab919ad2a418aa8c59145dc71a21.jpg">
             <h3>ARCHITECTURE PLANS</h3>
         </div>
@@ -99,6 +99,13 @@
         </div>
     </div>
 </footer>
-
+    <script >
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const type = card.dataset.type;
+                window.location.href = `listings.html?type=${type}`;
+            });
+        });
+    </script>
 </body>
 </html>
