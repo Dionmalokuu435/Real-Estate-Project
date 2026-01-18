@@ -1,111 +1,137 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="imagez" href="https://scontent.fprn12-1.fna.fbcdn.net/v/t1.15752-9/313815675_652898892942862_3583625417749956511_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=WRH8Aapcn9wAX9ahF9x&_nc_ht=scontent.fprn12-1.fna&oh=03_AdTEWo696kCPKrAtjeHytX2Uxochzvx55gfuslUcP3CZOA&oe=6387F3B2">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" type="imagez" href="https://scontent.fprn12-1.fna.fbcdn.net/v/t1.15752-9/313815675_652898892942862_3583625417749956511_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=ae9488&_nc_ohc=WRH8Aapcn9wAX9ahF9x&_nc_ht=scontent.fprn12-1.fna&oh=03_AdTEWo696kCPKrAtjeHytX2Uxochzvx55gfuslUcP3CZOA&oe=6387F3B2">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
-    <section class="section-1">
-		<header>
-			<h1> NT <span>ZOGU </span></h1>
-			<nav>
-				<ul>
-					<li><a href="index.html">HOME</a></li>
-					<li><a href="about.html">ABOUT</a></li>
-					<li><a href="project.html">PROJECT</a></li>
-					<li><a href="contact.html">CONTACT</a></li>
-				</ul>
-			</nav>
-	    </header>
-	</section>
-    <div class="textbox">
-		<h2>IF U WANT TO BE SAFE ,COME TO OUR PLACE </h2>
-		<p>“Good buildings come from good people,and all problems are solved by good design.</p>
-		<a href="" class="button"> Come work with us!</a>
-	</div>	
-	</section>
-		
-		<section class="section-2">
+
+  <section class="section-1">
+    <header>
+      <h1> NT <span>ZOGU</span></h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="project.html">PROJECT</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+  </section>
+
+  <!-- HERO -->
+  <div class="textbox">
+
+    <!-- ✅ slider në fillim -->
+    <div class="slider">
+      <div class="slide active" style="background-image:url('https://i.pinimg.com/564x/fd/e1/6b/fde16bb3d450d9da747eeb21c7360884.jpg')"></div>
+      <div class="slide" style="background-image:url('https://i.pinimg.com/564x/29/c5/a1/29c5a1a2b501193ff0903ddcac802d2f.jpg')"></div>
+      <div class="slide" style="background-image:url('https://i.pinimg.com/564x/00/f2/ca/00f2ca2703f98f7b8f96208d9ba49e17.jpg')"></div>
+
+      <button class="slider-btn prev" type="button" aria-label="Previous">‹</button>
+      <button class="slider-btn next" type="button" aria-label="Next">›</button>
+    </div>
+
+    <!-- ✅ wrapper i tekstit -->
+    <div class="hero-content">
+      <h2>IF U WANT TO BE SAFE ,COME TO OUR PLACE</h2>
+      <p>“Good buildings come from good people,and all problems are solved by good design.”</p>
+      <button class="btn" id="workBtn" type="button">Come Work With Us</button>
+    </div>
+
+  </div>
+
+  <!-- SECTION 2 -->
+  <section class="section-2">
     <h2>What Can We Offer</h2>
     <p>
-        Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur.
     </p>
 
     <div class="offering">
+      <div class="category-card houses" data-type="house">
+        <img alt="kosova1" src="https://i.pinimg.com/564x/29/c5/a1/29c5a1a2b501193ff0903ddcac802d2f.jpg">
+        <h3>HOUSES</h3>
+      </div>
 
-        <div class="category-card houses" data-type="house">
-            <img src="https://i.pinimg.com/564x/29/c5/a1/29c5a1a2b501193ff0903ddcac802d2f.jpg">
-            <h3>HOUSES</h3>
-        </div>
+      <div class="category-card build" data-type="apartment">
+        <img alt="kosova2" src="https://i.pinimg.com/564x/00/f2/ca/00f2ca2703f98f7b8f96208d9ba49e17.jpg">
+        <h3>BUILDING</h3>
+      </div>
 
-        <div class="category-card build" data-type="apartment">
-            <img src="https://i.pinimg.com/564x/00/f2/ca/00f2ca2703f98f7b8f96208d9ba49e17.jpg">
-            <h3>BUILDING</h3>
-        </div>
-
-        <div class="category-card arch" data-type="land">
-            <img src="https://i.pinimg.com/564x/9f/32/ab/9f32ab919ad2a418aa8c59145dc71a21.jpg">
-            <h3>ARCHITECTURE PLANS</h3>
-        </div>
-
+      <div class="category-card arch" data-type="land">
+        <img alt="kosova3" src="https://i.pinimg.com/564x/9f/32/ab/9f32ab919ad2a418aa8c59145dc71a21.jpg">
+        <h3>ARCHITECTURE PLANS</h3>
+      </div>
     </div>
-</section>
+  </section>
 
-
-        <footer>
+  <!-- FOOTER -->
+  <footer>
     <div class="footer">
-        <div class="footer-contact">
-            
-            <div class="footersection about">
-                <h1 class="logo"><span>NT</span>ZOGU</h1>
-                <p>
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum.
-                </p>
+      <div class="footer-contact">
+        <div class="footersection about">
+          <h1 class="logo"><span>NT</span>ZOGU</h1>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
 
-                <div class="contact">
-                    <span>&number; 012-345-678</span><br>
-                    <span>&email; info@ntzogu.com</span>
+          <div class="contact">
+            <span>&number; 012-345-678</span><br>
+            <span>&email; info@ntzogu.com</span>
 
-                    <div class="socials">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-gmail"></i></a>
-                    </div>
-                </div>
+            <div class="socials">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-gmail"></i></a>
             </div>
-
-            
-            <div class="footersection links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Team</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Terms and Condition</a></li>
-                </ul>
-            </div>
+          </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>© 2024 NT ZOGU. All rights reserved.</p>
+        <div class="footersection links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Terms and Condition</a></li>
+          </ul>
         </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2024 NT ZOGU. All rights reserved.</p>
+      </div>
     </div>
-</footer>
-    <script >
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const type = card.dataset.type;
-                window.location.href = `listings.html?type=${type}`;
-            });
-        });
-    </script>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.category-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const type = card.dataset.type;
+        window.location.href = `listings.html?type=${type}`;
+      });
+    });
+
+    const workBtn = document.getElementById("workBtn");
+    if (workBtn) {
+      workBtn.addEventListener("click", function () {
+        window.location.href = "contact.html";
+      });
+    }
+  </script>
+
+  <script src="slider.js"></script>
 </body>
 </html>
