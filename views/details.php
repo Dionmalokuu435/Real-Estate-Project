@@ -3,7 +3,7 @@ function mediaUrl(string $path): string
 {
     if (preg_match('#^https?://#i', $path))
         return $path;
-    return "/REAL-ESTATE-PROJECT/public/" . ltrim($path, '/');
+    return "/Real-Estate/public/" . ltrim($path, '/');
 }
 ?>
 
@@ -17,19 +17,18 @@ function mediaUrl(string $path): string
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <link rel="stylesheet" href="/REAL-ESTATE-PROJECT/public/assets/css/details-styling.css" />
+    <link rel="stylesheet" href="/Real-Estate/public/assets/css/details-styling.css" />
 </head>
 
 <body>
     <div class="container">
-        <p><a href="/REAL-ESTATE-PROJECT/public/listings.php">← Back to listings</a></p>
+        <p><a href="/Real-Estate/public/listings.php">← Back to listings</a></p>
 
         <?php if (empty($property)): ?>
             <div class="card" style="padding:18px;">Property not found.</div>
         <?php else: ?>
             <div class="card">
                 <?php
-                // primary image: merr të parën image ose primary
                 $img = null;
                 foreach ($media as $m) {
                     if ($m['file_type'] === 'image') {

@@ -4,7 +4,7 @@ function mediaUrl(string $path): string
 {
     if (preg_match('#^https?://#i', $path))
         return $path;
-    return "/REAL-ESTATE-PROJECT/public/" . ltrim($path, '/');
+    return "/Real-Estate/public/" . ltrim($path, '/');
 }
 function subtitleLabel(?string $type): string
 {
@@ -26,7 +26,7 @@ $type = $_GET['type'] ?? null; // all | house | apartment | land
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <link rel="stylesheet" href="/REAL-ESTATE-PROJECT/public/assets/css/listings-styling.css" />
+    <link rel="stylesheet" href="/Real-Estate/public/assets/css/listings-styling.css" />
 </head>
 
 <body>
@@ -37,24 +37,24 @@ $type = $_GET['type'] ?? null; // all | house | apartment | land
                     <h1>Prime Properties</h1>
                     <p class="subtitle" id="pageSubtitle"><?= htmlspecialchars(subtitleLabel($type)) ?></p>
                 </div>
-                <a class="back" href="/REAL-ESTATE-PROJECT/public/index.php">← Back</a>
+                <a class="back" href="/Real-Estate/public/index.php">← Back</a>
             </div>
 
             <div class="filter-section">
                 <a class="filter-btn <?= $type === null ? 'active' : '' ?>"
-                    href="/REAL-ESTATE-PROJECT/public/listings.php">
+                    href="/Real-Estate/public/listings.php">
                     <i class="fa-solid fa-table-cells"></i> All Properties
                 </a>
                 <a class="filter-btn <?= $type === 'house' ? 'active' : '' ?>"
-                    href="/REAL-ESTATE-PROJECT/public/listings.php?type=house">
+                    href="/Real-Estate/public/listings.php?type=house">
                     <i class="fa-solid fa-house"></i> Houses
                 </a>
                 <a class="filter-btn <?= $type === 'apartment' ? 'active' : '' ?>"
-                    href="/REAL-ESTATE-PROJECT/public/listings.php?type=apartment">
+                    href="/Real-Estate/public/listings.php?type=apartment">
                     <i class="fa-solid fa-building"></i> Apartments
                 </a>
                 <a class="filter-btn <?= $type === 'land' ? 'active' : '' ?>"
-                    href="/REAL-ESTATE-PROJECT/public/listings.php?type=land">
+                    href="/Real-Estate/public/listings.php?type=land">
                     <i class="fa-solid fa-mountain-sun"></i> Lands
                 </a>
             </div>
@@ -109,7 +109,7 @@ $type = $_GET['type'] ?? null; // all | house | apartment | land
                                 <?php endif; ?>
                             </div>
 
-                            <a class="card-btn" href="/REAL-ESTATE-PROJECT/public/details.php?id=<?= (int) $p['id'] ?>">
+                            <a class="card-btn" href="/Real-Estate/public/details.php?id=<?= (int) $p['id'] ?>">
                                 <i class="fas fa-eye"></i> View Details
                             </a>
                         </div>

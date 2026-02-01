@@ -8,8 +8,8 @@ if (session_status() === PHP_SESSION_NONE)
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/REAL-ESTATE-PROJECT/public/assets/css/listings-styling.css">
-    <link rel="stylesheet" href="/REAL-ESTATE-PROJECT/public/assets/css/details-styling.css">
+    <link rel="stylesheet" href="/Real-Estate/public/assets/css/listings-styling.css">
+    <link rel="stylesheet" href="/Real-Estate/public/assets/css/details-styling.css">
 
 
     <title>
@@ -24,10 +24,10 @@ if (session_status() === PHP_SESSION_NONE)
             <h1> NT <span>ZOGU</span></h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.php">HOME</a></li>
                     <li><a href="about.html">ABOUT</a></li>
                     <li><a href="project.html">PROJECT</a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="../public/pages/contact.html">CONTACT</a></li>
                 </ul>
             </nav>
         </header>

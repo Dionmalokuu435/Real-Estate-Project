@@ -8,7 +8,7 @@ if (session_status() === PHP_SESSION_NONE)
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/REAL-ESTATE-PROJECT/public/assets/css/style.css">
+    <link rel="stylesheet" href="/Real-Estate/public/assets/css/style.css">
     <title>
         <?= htmlspecialchars($title ?? 'Real Estate') ?>
     </title>

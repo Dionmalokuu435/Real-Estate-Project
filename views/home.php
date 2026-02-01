@@ -3,7 +3,7 @@ function mediaUrl(string $path): string
 {
     if (preg_match('#^https?://#i', $path))
         return $path;
-    return "/REAL-ESTATE-PROJECT/public/" . ltrim($path, '/');
+    return "/Real-Estate/public/" . ltrim($path, '/');
 }
 ?>
 
@@ -88,8 +88,8 @@ function mediaUrl(string $path): string
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-    <link rel="stylesheet" href="/REAL-ESTATE-PROJECT/public/assets/css/style.css" />
-    <!-- <link rel="stylesheet" href="/REAL-ESTATE-PROJECT/public/assets/css/listings-styling.css" /> -->
+    <link rel="stylesheet" href="/Real-Estate/public/assets/css/style.css" />
+    <!-- <link rel="stylesheet" href="/Real-Estate/public/assets/css/listings-styling.css" /> -->
 </head>
 
 <body>
@@ -192,7 +192,7 @@ function mediaUrl(string $path): string
                                         </div>
 
                                         <a class="card-btn"
-                                            href="/REAL-ESTATE-PROJECT/public/details.php?id=<?= (int) $p['id'] ?>">
+                                            href="/Real-Estate/public/details.php?id=<?= (int) $p['id'] ?>">
                                             <i class="fas fa-eye"></i> View Details
                                         </a>
                                     </div>
@@ -207,14 +207,14 @@ function mediaUrl(string $path): string
 
 
     <p style="margin: 20px 0; justify-self: anchor-center;">
-        <a class="filter-btn" href="/REAL-ESTATE-PROJECT/public/listings.php">
+        <a class="filter-btn" href="/Real-Estate/public/listings.php">
             <i class="fa-solid fa-table-cells"></i> View All Properties
         </a>
     </p>
     </div>
 
     <!-- Nëse keni slider.js nga index.html, vendose këtu -->
-    <script src="/REAL-ESTATE-PROJECT/public/assets/js/slider.js"></script>
+    <script src="/Real-Estate/public/assets/js/slider.js"></script>
     <script>
         (function () {
             const track = document.getElementById('latestTrack');
