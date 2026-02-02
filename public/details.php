@@ -5,6 +5,10 @@ require_once __DIR__ . '/../app/Repositories/PropertyRepository.php';
 
 $repo = new PropertyRepository();
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 if ($id <= 0) {
     http_response_code(404);

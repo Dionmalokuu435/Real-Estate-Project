@@ -1,0 +1,1239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RealEstate Admin | Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #3a86ff;
+        --primary-dark: #2667cc;
+        --secondary: #6c757d;
+        --success: #28a745;
+        --danger: #e63946;
+        --warning: #ff9f1c;
+        --light: #f8f9fa;
+        --dark: #343a40;
+        --gray: #6c757d;
+        --gray-light: #e9ecef;
+        --border-radius: 8px;
+        --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f5f7fb;
+        color: #333;
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar Styles */
+      .sidebar {
+        width: 250px;
+        background-color: white;
+        box-shadow: var(--box-shadow);
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition);
+        z-index: 100;
+      }
+
+      .logo {
+        padding: 24px 20px;
+        border-bottom: 1px solid var(--gray-light);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo h1 {
+        font-size: 1.5rem;
+        color: var(--primary);
+      }
+
+      .logo-icon {
+        color: var(--primary);
+        font-size: 1.8rem;
+      }
+
+      .nav-menu {
+        flex: 1;
+        padding: 20px 0;
+      }
+
+      .nav-item {
+        list-style: none;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 20px;
+        color: var(--dark);
+        text-decoration: none;
+        transition: var(--transition);
+        border-left: 4px solid transparent;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        background-color: rgba(58, 134, 255, 0.05);
+        color: var(--primary);
+        border-left-color: var(--primary);
+      }
+
+      .nav-icon {
+        width: 20px;
+        text-align: center;
+      }
+
+      .logout {
+        margin-top: auto;
+        border-top: 1px solid var(--gray-light);
+      }
+
+      /* Main Content Styles */
+      .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+      }
+
+      .topbar {
+        background-color: white;
+        padding: 18px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: var(--box-shadow);
+      }
+
+      .page-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+      }
+
+      .content {
+        padding: 30px;
+        flex: 1;
+      }
+
+      /* Card Styles */
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      .card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 24px;
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+      }
+
+      .card-title {
+        font-size: 0.9rem;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+      }
+
+      .card-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      /* Table Styles */
+      .table-container {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+      }
+
+      .table-header {
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--gray-light);
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .btn {
+        padding: 10px 18px;
+        border-radius: var(--border-radius);
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: var(--primary);
+        border: 1px solid var(--primary);
+      }
+
+      .btn-outline:hover {
+        background-color: rgba(58, 134, 255, 0.05);
+      }
+
+      .btn-sm {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+      }
+
+      .btn-danger {
+        background-color: var(--danger);
+        color: white;
+      }
+
+      .btn-danger:hover {
+        background-color: #c1121f;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th {
+        text-align: left;
+        padding: 16px 24px;
+        background-color: #f9fafc;
+        font-weight: 600;
+        color: var(--dark);
+        border-bottom: 1px solid var(--gray-light);
+      }
+
+      td {
+        padding: 16px 24px;
+        border-bottom: 1px solid var(--gray-light);
+      }
+
+      .thumbnail {
+        width: 60px;
+        height: 40px;
+        border-radius: 4px;
+        object-fit: cover;
+        background-color: #e9ecef;
+      }
+
+      .status {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .status-active {
+        background-color: rgba(40, 167, 69, 0.1);
+        color: var(--success);
+      }
+
+      .status-inactive {
+        background-color: rgba(230, 57, 70, 0.1);
+        color: var(--danger);
+      }
+
+      .status-user {
+        background-color: rgba(58, 134, 255, 0.1);
+        color: var(--primary);
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+      }
+
+      /* Form Styles */
+      .form-container {
+        max-width: 800px;
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        padding: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+      }
+
+      textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .features-container {
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        padding: 20px;
+      }
+
+      .feature-row {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .feature-row:last-child {
+        margin-bottom: 0;
+      }
+
+      .feature-row input {
+        flex: 1;
+      }
+
+      .upload-area {
+        border: 2px dashed #ddd;
+        border-radius: var(--border-radius);
+        padding: 40px;
+        text-align: center;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .upload-area:hover {
+        border-color: var(--primary);
+      }
+
+      .upload-icon {
+        font-size: 2.5rem;
+        color: var(--gray);
+        margin-bottom: 16px;
+      }
+
+      /* Mobile Responsive */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--dark);
+        cursor: pointer;
+      }
+
+      @media (max-width: 992px) {
+        body {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+          position: fixed;
+          height: 100vh;
+          transform: translateX(-100%);
+        }
+
+        .sidebar.active {
+          transform: translateX(0);
+        }
+
+        .main-content {
+          width: 100%;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .cards-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        table {
+          display: block;
+          overflow-x: auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cards-container {
+          grid-template-columns: 1fr;
+        }
+
+        .content {
+          padding: 20px;
+        }
+
+        .table-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Utility Classes */
+      .hidden {
+        display: none !important;
+      }
+
+      .mt-4 {
+        margin-top: 24px;
+      }
+
+      .mb-4 {
+        margin-bottom: 24px;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="logo">
+        <i class="fas fa-home logo-icon"></i>
+        <h1>RealEstate Admin</h1>
+      </div>
+
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#" class="nav-link active" data-section="dashboard">
+            <i class="fas fa-tachometer-alt nav-icon"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-section="properties">
+            <i class="fas fa-building nav-icon"></i>
+            <span>Properties</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-section="add-property">
+            <i class="fas fa-plus-circle nav-icon"></i>
+            <span>Add Property</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-section="users">
+            <i class="fas fa-users nav-icon"></i>
+            <span>Users</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link" data-section="favorites">
+            <i class="fas fa-heart nav-icon"></i>
+            <span>Favorites</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="logout">
+        <a href="#" class="nav-link">
+          <i class="fas fa-sign-out-alt nav-icon"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="page-title" id="pageTitle">Dashboard Overview</div>
+        <div class="user-info">
+          <div class="user-avatar">AD</div>
+          <span>Admin User</span>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <section class="content">
+        <!-- Dashboard Overview -->
+        <div id="dashboard" class="content-section">
+          <div class="cards-container">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Total Properties</h3>
+                <div
+                  class="card-icon"
+                  style="
+                    background-color: rgba(58, 134, 255, 0.1);
+                    color: var(--primary);
+                  "
+                >
+                  <i class="fas fa-building"></i>
+                </div>
+              </div>
+              <div class="card-value">156</div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Active Properties</h3>
+                <div
+                  class="card-icon"
+                  style="
+                    background-color: rgba(40, 167, 69, 0.1);
+                    color: var(--success);
+                  "
+                >
+                  <i class="fas fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="card-value">142</div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Registered Users</h3>
+                <div
+                  class="card-icon"
+                  style="
+                    background-color: rgba(255, 159, 28, 0.1);
+                    color: var(--warning);
+                  "
+                >
+                  <i class="fas fa-users"></i>
+                </div>
+              </div>
+              <div class="card-value">78</div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Favorites Count</h3>
+                <div
+                  class="card-icon"
+                  style="
+                    background-color: rgba(230, 57, 70, 0.1);
+                    color: var(--danger);
+                  "
+                >
+                  <i class="fas fa-heart"></i>
+                </div>
+              </div>
+              <div class="card-value">243</div>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <div class="table-header">
+              <h2 class="section-title">Recent Properties</h2>
+              <button
+                class="btn btn-primary"
+                onclick="showSection('properties')"
+              >
+                <i class="fas fa-eye"></i> View All
+              </button>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Type</th>
+                  <th>Location</th>
+                  <th>Price</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 12px">
+                      <div class="thumbnail"></div>
+                      <span>Modern Downtown Apartment</span>
+                    </div>
+                  </td>
+                  <td>Apartment</td>
+                  <td>New York</td>
+                  <td>$2,500/mo</td>
+                  <td><span class="status status-active">Active</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 12px">
+                      <div class="thumbnail"></div>
+                      <span>Suburban Family House</span>
+                    </div>
+                  </td>
+                  <td>House</td>
+                  <td>Chicago</td>
+                  <td>$425,000</td>
+                  <td><span class="status status-active">Active</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="display: flex; align-items: center; gap: 12px">
+                      <div class="thumbnail"></div>
+                      <span>Vacant Land Plot</span>
+                    </div>
+                  </td>
+                  <td>Land</td>
+                  <td>Austin</td>
+                  <td>$120,000</td>
+                  <td><span class="status status-inactive">Inactive</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Properties Management -->
+        <div id="properties" class="content-section hidden">
+          <div class="table-container">
+            <div class="table-header">
+              <h2 class="section-title">Properties Management</h2>
+              <button
+                class="btn btn-primary"
+                onclick="showSection('add-property')"
+              >
+                <i class="fas fa-plus"></i> Add New Property
+              </button>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Location</th>
+                  <th>Price</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="thumbnail"></div></td>
+                  <td>Modern Downtown Apartment</td>
+                  <td>Apartment</td>
+                  <td>New York</td>
+                  <td>$2,500/mo</td>
+                  <td><span class="status status-active">Active</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div class="thumbnail"></div></td>
+                  <td>Suburban Family House</td>
+                  <td>House</td>
+                  <td>Chicago</td>
+                  <td>$425,000</td>
+                  <td><span class="status status-active">Active</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div class="thumbnail"></div></td>
+                  <td>Vacant Land Plot</td>
+                  <td>Land</td>
+                  <td>Austin</td>
+                  <td>$120,000</td>
+                  <td><span class="status status-inactive">Inactive</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div class="thumbnail"></div></td>
+                  <td>Luxury Villa</td>
+                  <td>House</td>
+                  <td>Miami</td>
+                  <td>$1,200,000</td>
+                  <td><span class="status status-active">Active</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><div class="thumbnail"></div></td>
+                  <td>City Center Loft</td>
+                  <td>Apartment</td>
+                  <td>San Francisco</td>
+                  <td>$3,800/mo</td>
+                  <td><span class="status status-active">Active</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Add/Edit Property Form -->
+        <div id="add-property" class="content-section hidden">
+          <div class="form-container">
+            <h2 class="section-title mb-4">Add New Property</h2>
+
+            <form id="propertyForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="title">Property Title *</label>
+                  <input
+                    type="text"
+                    id="title"
+                    class="form-control"
+                    placeholder="Enter property title"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="type">Property Type *</label>
+                  <select id="type" class="form-control" required>
+                    <option value="">Select type</option>
+                    <option value="house">House</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="land">Land</option>
+                    <option value="commercial">Commercial</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="location">Location *</label>
+                  <input
+                    type="text"
+                    id="location"
+                    class="form-control"
+                    placeholder="Enter property location"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="price">Price *</label>
+                  <input
+                    type="number"
+                    id="price"
+                    class="form-control"
+                    placeholder="Enter price"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="priceNote">Price Note</label>
+                  <input
+                    type="text"
+                    id="priceNote"
+                    class="form-control"
+                    placeholder="e.g., negotiable, per month"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="status">Status *</label>
+                  <select id="status" class="form-control" required>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="description">Description *</label>
+                <textarea
+                  id="description"
+                  class="form-control"
+                  placeholder="Enter property description"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Property Features</label>
+                <div class="features-container">
+                  <div id="featuresList">
+                    <div class="feature-row">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Feature label (e.g., Bedrooms)"
+                      />
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Feature value (e.g., 3)"
+                      />
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        onclick="removeFeatureRow(this)"
+                      >
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-outline mt-4"
+                    onclick="addFeatureRow()"
+                  >
+                    <i class="fas fa-plus"></i> Add Feature
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Media Upload</label>
+                <div class="upload-area">
+                  <div class="upload-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                  </div>
+                  <h3>Drag & Drop Images Here</h3>
+                  <p>or click to browse</p>
+                  <input
+                    type="file"
+                    id="imageUpload"
+                    multiple
+                    style="display: none"
+                  />
+                </div>
+                <div class="mt-4">
+                  <label>
+                    <input type="checkbox" /> Mark first image as primary
+                  </label>
+                </div>
+                <div class="mt-4">
+                  <label>Upload PDF Brochure (Optional)</label>
+                  <input type="file" class="form-control" accept=".pdf" />
+                </div>
+              </div>
+
+              <div class="form-group text-center">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  style="padding: 12px 40px"
+                >
+                  <i class="fas fa-save"></i> Save Property
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline"
+                  onclick="showSection('properties')"
+                  style="padding: 12px 40px"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Users Management -->
+        <div id="users" class="content-section hidden">
+          <div class="table-container">
+            <div class="table-header">
+              <h2 class="section-title">Users Management</h2>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John Smith</td>
+                  <td>john@example.com</td>
+                  <td><span class="status status-user">Admin</span></td>
+                  <td><span class="status status-active">Active</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">Change Role</button>
+                    <button class="btn btn-sm btn-danger">Deactivate</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jane Doe</td>
+                  <td>jane@example.com</td>
+                  <td><span class="status">User</span></td>
+                  <td><span class="status status-active">Active</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">Change Role</button>
+                    <button class="btn btn-sm btn-danger">Deactivate</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Robert Johnson</td>
+                  <td>robert@example.com</td>
+                  <td><span class="status">User</span></td>
+                  <td><span class="status status-inactive">Inactive</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">Change Role</button>
+                    <button class="btn btn-sm btn-success">Activate</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Maria Garcia</td>
+                  <td>maria@example.com</td>
+                  <td><span class="status status-user">Admin</span></td>
+                  <td><span class="status status-active">Active</span></td>
+                  <td class="actions">
+                    <button class="btn btn-sm btn-outline">Change Role</button>
+                    <button class="btn btn-sm btn-danger">Deactivate</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Favorites Overview -->
+        <div id="favorites" class="content-section hidden">
+          <div class="table-container">
+            <div class="table-header">
+              <h2 class="section-title">Favorites Overview</h2>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Favorited Property</th>
+                  <th>Date Added</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John Smith</td>
+                  <td>Modern Downtown Apartment</td>
+                  <td>2023-10-15</td>
+                </tr>
+                <tr>
+                  <td>Jane Doe</td>
+                  <td>Suburban Family House</td>
+                  <td>2023-10-12</td>
+                </tr>
+                <tr>
+                  <td>Robert Johnson</td>
+                  <td>Luxury Villa</td>
+                  <td>2023-10-10</td>
+                </tr>
+                <tr>
+                  <td>Maria Garcia</td>
+                  <td>City Center Loft</td>
+                  <td>2023-10-08</td>
+                </tr>
+                <tr>
+                  <td>David Wilson</td>
+                  <td>Vacant Land Plot</td>
+                  <td>2023-10-05</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Toggle sidebar on mobile
+      document
+        .getElementById("menuToggle")
+        .addEventListener("click", function () {
+          document.getElementById("sidebar").classList.toggle("active");
+        });
+
+      // Navigation functionality
+      const navLinks = document.querySelectorAll(".nav-link");
+      const contentSections = document.querySelectorAll(".content-section");
+      const pageTitle = document.getElementById("pageTitle");
+
+      // Section titles mapping
+      const sectionTitles = {
+        dashboard: "Dashboard Overview",
+        properties: "Properties Management",
+        "add-property": "Add New Property",
+        users: "Users Management",
+        favorites: "Favorites Overview",
+      };
+
+      // Function to show a specific section
+      function showSection(sectionId) {
+        // Hide all sections
+        contentSections.forEach((section) => {
+          section.classList.add("hidden");
+        });
+
+        // Show the selected section
+        document.getElementById(sectionId).classList.remove("hidden");
+
+        // Update page title
+        pageTitle.textContent = sectionTitles[sectionId] || "Dashboard";
+
+        // Update active nav link
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("data-section") === sectionId) {
+            link.classList.add("active");
+          }
+        });
+
+        // Close sidebar on mobile after clicking a link
+        if (window.innerWidth <= 992) {
+          document.getElementById("sidebar").classList.remove("active");
+        }
+      }
+
+      // Add click event listeners to nav links
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const sectionId = this.getAttribute("data-section");
+          showSection(sectionId);
+        });
+      });
+
+      // Property features functionality
+      function addFeatureRow() {
+        const featuresList = document.getElementById("featuresList");
+        const newRow = document.createElement("div");
+        newRow.className = "feature-row";
+        newRow.innerHTML = `
+                <input type="text" class="form-control" placeholder="Feature label (e.g., Bedrooms)">
+                <input type="text" class="form-control" placeholder="Feature value (e.g., 3)">
+                <button type="button" class="btn btn-danger" onclick="removeFeatureRow(this)"><i class="fas fa-times"></i></button>
+            `;
+        featuresList.appendChild(newRow);
+      }
+
+      function removeFeatureRow(button) {
+        const row = button.parentElement;
+        if (document.querySelectorAll(".feature-row").length > 1) {
+          row.remove();
+        }
+      }
+
+      // Form submission
+      document
+        .getElementById("propertyForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Property saved successfully!");
+          showSection("properties");
+        });
+
+      const uploadArea = document.querySelector(".upload-area");
+      const fileInput = document.getElementById("imageUpload");
+
+      uploadArea.addEventListener("click", function () {
+        fileInput.click();
+      });
+
+      fileInput.addEventListener("change", function () {
+        if (this.files.length > 0) {
+          uploadArea.innerHTML = `
+                    <div class="upload-icon" style="color: var(--success);">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>${this.files.length} file(s) selected</h3>
+                    <p>Click to change selection</p>
+                `;
+        }
+      });
+
+      uploadArea.addEventListener("dragover", function (e) {
+        e.preventDefault();
+        this.style.borderColor = "var(--primary)";
+        this.style.backgroundColor = "rgba(58, 134, 255, 0.05)";
+      });
+
+      uploadArea.addEventListener("dragleave", function () {
+        this.style.borderColor = "#ddd";
+        this.style.backgroundColor = "";
+      });
+
+      uploadArea.addEventListener("drop", function (e) {
+        e.preventDefault();
+        this.style.borderColor = "#ddd";
+        this.style.backgroundColor = "";
+
+        if (e.dataTransfer.files.length > 0) {
+          fileInput.files = e.dataTransfer.files;
+          uploadArea.innerHTML = `
+                    <div class="upload-icon" style="color: var(--success);">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>${e.dataTransfer.files.length} file(s) dropped</h3>
+                    <p>Click to change selection</p>
+                `;
+        }
+      });
+    </script>
+  </body>
+</html>
